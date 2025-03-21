@@ -37,7 +37,7 @@ console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  // TODO
+  return numbers.length; // returns the legth of the array
 }
 
 /**
@@ -45,7 +45,14 @@ function getLength(numbers) {
  * @returns {number} the sum of the numbers
  */
 function getSum(numbers) {
-  // TODO
+  let sum = 0; // sum of the array
+
+  for (let i = 0; i < getLength(numbers); i++) {
+    // traverse the array adding to sum
+    sum = sum + numbers[i];
+  }
+
+  return sum; // return sum
 }
 
 /**
@@ -53,7 +60,11 @@ function getSum(numbers) {
  * @returns {number} the mean of the numbers
  */
 function getMean(numbers) {
-  // TODO
+  let mean = 0; // mean of the array
+
+  mean = getSum(numbers) / getLength(numbers); // sum of numbers / the number of integers in the array
+
+  return mean; // return mean
 }
 
 /**
@@ -61,7 +72,18 @@ function getMean(numbers) {
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  // TODO
+  let min = numbers[0]; // set initial value of min to the first object of the array
+
+  for (let i = 1; i < getLength(numbers); i++) {
+    // traverse the array
+
+    if (min > numbers[i]) {
+      // checks if min is larger than next object of the array
+      min = numbers[i]; // if min is larger than the next object, replace min with that object
+    }
+  }
+
+  return min; // return min
 }
 
 /**
@@ -69,7 +91,17 @@ function getMin(numbers) {
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  // TODO
+  let max = numbers[0]; // set initial value of max to the first object of the array
+
+  for (let i = 1; i < getLength(numbers); i++) {
+    // traverse the array
+    if (max < numbers[i]) {
+      // checks if max is smaller than the next object of the array
+      max = numbers[i]; // if max is smaller than the next object, replace max with that object
+    }
+  }
+
+  return max; // return max
 }
 
 /**
@@ -77,7 +109,11 @@ function getMax(numbers) {
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  // TODO
+  let range = 0; // range of the array
+
+  range = getMax(numbers) - getMin(numbers); // subtract max of numbers with min of numbers
+
+  return range; // return range
 }
 
 /**
@@ -85,7 +121,17 @@ function getRange(numbers) {
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  // TODO
+  const evens = []; // create an array with no objects
+
+  for (let i = 0; i < getLength(numbers); i++) {
+    // traverse the array
+    if (numbers[i] % 2 == 0) {
+      // check if number is divisable by 2 with no remainder
+      evens.push(numbers[i]); // if number has no remainder, add to evens
+    }
+  }
+
+  return evens; // return evens
 }
 
 /**
@@ -93,5 +139,15 @@ function getEvens(numbers) {
  * @returns {number[]} the odd numbers in the array
  */
 function getOdds(numbers) {
-  // TODO
+  const odds = []; // create and array with no objects
+
+  for (let i = 0; i < getLength(numbers); i++) {
+    // traverse the array
+    if (numbers[i] % 2 !== 0) {
+      // check if number is divisable by 2 with a remainder
+      odds.push(numbers[i]); // if number has a remainder, add to odds
+    }
+  }
+
+  return odds; // returns odd
 }
